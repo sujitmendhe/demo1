@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: backend-containers
-          image:
+          image: 490874679766.dkr.ecr.us-east-1.amazonaws.com/site-frontend:082411c5ae8590100c49b3fa9870ba29865205ae
           ports:
             - containerport: 8501
