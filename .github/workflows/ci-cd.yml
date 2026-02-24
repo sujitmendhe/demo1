@@ -56,3 +56,15 @@ jobs:
           docker push $IMAGE_URI
 
           sed -i "s|image:.*|image: $IMAGE_URI|g" backend.yml
+
+           # -------------------------
+      # Commit YAML changes
+      # -------------------------
+      - name: 🔄 Commit updated YAML files
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+          git add frontend/**/deployment.yml backend/backend-deployment.yml
+          git commit -m "🔄 Update image tags after build [skip ci]" || echo "No changes"
+          git push origin main || echo "Nothing to push"
