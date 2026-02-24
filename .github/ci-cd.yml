@@ -2,7 +2,7 @@ name: demoproject
 
 on:
   push:
-    branch:
+    branches:
       -  main:
 
 env:
